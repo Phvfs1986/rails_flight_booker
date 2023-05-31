@@ -1,3 +1,5 @@
-<% @booking.each do |b| %>
-  <%= b %>
-<% end %>
+Departure Airport: <%= @flight.departure_airport.code %><br>
+Arrival Airport: <%= @flight.arrival_airport.code %><br>
+Flight Date: <%= @flight.departure_time.strftime('%Y-%m-%d at %H:%M') %><br>
+Flight Duration: <%= @flight.duration %> minutes
+

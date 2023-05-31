@@ -30,13 +30,10 @@
   <% else %>
     <%= form_tag new_booking_path, method: :get do %>
       <% @search.each do |s| %>
-        <%= radio_button_tag(:flight_option, 'Option') %>
-        <%= label_tag(:option, s.departure_time) %>
+        <%= radio_button_tag(:flight_id, s.id) %>
+        <%= label_tag(:flight_id, s.departure_time) %>
       <% end %>
-    <%= hidden_field_tag(:departure_airport, params[:departure_airport]) %>
-    <%= hidden_field_tag(:arrival_airport, params[:arrival_airport]) %>
     <%= hidden_field_tag(:passenger_count, params[:passenger_count]) %>
-    <%= hidden_field_tag(:flight_date, params[:flight_date]) %>
     <%= submit_tag 'Submit' %>
     <% end %>
   <% end %>
