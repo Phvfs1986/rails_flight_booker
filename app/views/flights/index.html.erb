@@ -31,7 +31,7 @@
     <%= form_tag new_booking_path, method: :get do %>
       <% @search.each do |s| %>
         <%= radio_button_tag(:flight_id, s.id) %>
-        <%= label_tag(:flight_id, s.departure_time) %>
+        <%= label_tag(:flight_id, s.departure_time) %><br>
       <% end %>
     <%= hidden_field_tag(:passenger_count, params[:passenger_count]) %>
     <%= submit_tag 'Submit' %>

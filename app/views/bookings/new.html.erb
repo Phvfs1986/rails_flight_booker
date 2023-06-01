@@ -1,5 +1,18 @@
+<h2>Flight Info:</h2>
 Departure Airport: <%= @flight.departure_airport.code %><br>
 Arrival Airport: <%= @flight.arrival_airport.code %><br>
 Flight Date: <%= @flight.departure_time.strftime('%Y-%m-%d at %H:%M') %><br>
 Flight Duration: <%= @flight.duration %> minutes
 
+<h2>Passenger Info:</h2>
+<%= form_for @booking do |f| %>
+  <%= hidden_field_tag(:flight_id, params[:flight_id]) %>
+    <%= f.fields_for :passengers do |p| %>
+      <%= p.label :name %>
+      <p><%= p.text_field :name, required: true %></p>
+      <%= p.label :email %>
+      <p><%= p.email_field :email, required: true %></p><br><br>
+      <%= p.hidden_field :id %>
+    <% end %>
+  <%= submit_tag %>
+<% end %>

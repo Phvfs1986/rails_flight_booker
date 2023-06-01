@@ -1,0 +1,6 @@
+<h1>Booking number #<%= @booking.id %>:</h1>
+<% @booking.passengers.each_with_index do |p, i| %>
+  <h3>Passenger <%= i + 1 %>:</h3>
+  <p>Name: <%= p.name %></p>
+  <p>Email: <%= p.email %></p>
+<% end %>
